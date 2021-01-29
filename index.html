@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <h2>Simple Calculator</h2>
+      <div class="output">
+        <input id="input" type="text" readonly value="" placeholder="0" />
+      </div>
+      <div class="buttons">
+        <button onclick="buttonClick(7)">7</button>
+        <button onclick="buttonClick(8)">8</button>
+        <button onclick="buttonClick(9)">9</button>
+        <button onclick="buttonClick('/')">/</button>
+        <button onclick="buttonClick(6)">6</button>
+        <button onclick="buttonClick(5)">5</button>
+        <button onclick="buttonClick(4)">4</button>
+        <button onclick="buttonClick('*')">X</button>
+        <button onclick="buttonClick(3)">3</button>
+        <button onclick="buttonClick(2)">2</button>
+        <button onclick="buttonClick(1)">1</button>
+        <button onclick="buttonClick('-')">-</button>
+        <button onclick="reset()">C</button>
+        <button onclick="buttonClick(0)">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="buttonClick('+')">+</button>
+      </div>
+    </div>
+
+    <script>
+      function buttonClick(numberInput) {
+        const numNew = document.getElementById('input').value;
+        document.getElementById('input').value = numNew + numberInput;
+      }
+
+      function calculate() {
+        const cal = document.getElementById('input').value;
+        const total = eval(cal);
+        document.getElementById('input').value = total;
+      }
+      function reset() {
+        const result = document.getElementById('input').value;
+        document.getElementById('input').value = '';
+      }
+    </script>
+  </body>
+</html>
